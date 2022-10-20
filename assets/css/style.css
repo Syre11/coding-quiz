@@ -1,0 +1,32 @@
+body {
+  background-color: #628ca1
+}
+
+.container {
+  display: block;
+  margin: 100px auto;
+  text-align: center;
+  font-size: 25px;
+  box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.25);
+  width: 65vw;
+  background-color: #e7e5d5;
+  padding: 10px 10px 10px 10px;
+}
+
+#answers {
+  font-size: 25px;
+  padding: 20px 80% 20px 10%;
+}
+
+#startBtn {
+  font-size: 16px;
+  padding: 5px 7px;
+  background-color: rgb(155, 122, 216);
+  border-radius: 10px;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+#startBtn:hover {
+  box-shadow: 0 0 0 0;
+  border-color: rgb(22, 152, 228);
+}
