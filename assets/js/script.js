@@ -1,6 +1,3 @@
-//Should've made show and hide functions for .setAttribute("style", "display: none/block")
-
-
 var containerEl = document.querySelector(".container")
 var viewHighscoresEL = document.querySelector("#viewHighscores")
 var timerEl = document.querySelector("#timer")
@@ -26,10 +23,7 @@ var initialsEl = document.querySelector("#initials")
 
 
 //hides questions list on page load
-answersEl.setAttribute("style", "display: none")
-scoreInputsEl.setAttribute("style", "display: none")
-highscoresEl.setAttribute("style", "display: none")
-timerEl.setAttribute("style", "display: none")
+
 
 
 var currentQuestion = 0;
@@ -65,6 +59,15 @@ var questions = [
   }
 ];
 
+  //sets the given element to no longer be hidden
+function show(element) {
+  element.setAttribute("style", "display: block")
+}
+
+  //hides given element
+function hide(element) {
+  element.setAttribute("style", "display: none")
+}
 
 function startTimer() {
   timeInterval = setInterval(function () {
@@ -87,10 +90,8 @@ function stopTimer() {
 }
 
 function nextQuestion() {
-  //sets answer list to no longer be hidden
-  answersEl.setAttribute("style", "display: block")
-  //hides start button
-  startButton.setAttribute("style", "display: none");
+  show(answersEl);
+  hide(startButton);
   //ties each answer to its respective li
   if (currentQuestion < questions.length) {
     questionEl.textContent = questions[currentQuestion].question;
@@ -115,39 +116,44 @@ function checkAnswer(event) {
 }
 
 function endQuiz() {
-  containerEl.setAttribute("style", "display: none");
-  timerEl.setAttribute("style", "display: none");
-  scoreInputsEl.setAttribute("style", "display: block")
+  hide(containerEl);
+  hide(timerEl);
+  show(scoreInputsEl);
   yourScoreEl.textContent = score;
 }
 
 function quizReset () {
   currentQuestion = 0;
   timeLeft = 30;
-  startButton.setAttribute("style", "display: inline")
-  quizInstrEl.setAttribute("style", "display: block")
-  quizTitleEl.setAttribute("style", "display: block")
-  questionEl.setAttribute("style", "display: none")
-  answersEl.setAttribute("style", "display: none")
-  responseEl.setAttribute("style", "display: none")
+  startButton.setAttribute("style", "display: inline");
+  show(quizInstrEl);
+  show(quizTitleEl);
+  hide(questionEl);
+  hide(answersEl);
+  hide(responseEl);
 }
 
 function storeHighscores () {
-  highscoresEl.setAttribute("style", "display: block")
+  show(highscoresEl);
   highScores = JSON.parse(localStorage.getItem("scores"));
   var newScoreArray = document.createElement("li");
   newScoreArray.textContent = "User: " + localStorage.getItem('username') + "     Score: " + localStorage.getItem('userscore');
   document.querySelector("#scores").appendChild(newScoreArray);
 }
 
+hide(answersEl);
+hide(scoreInputsEl);
+hide(highscoresEl);
+hide(timerEl);
+
 startButton.addEventListener("click", function() {
-  quizTitleEl.setAttribute("style", "display: none")
-  quizInstrEl.setAttribute("style", "display: none")
-  questionEl.setAttribute("style", "display: block")
-  timerEl.setAttribute("style", "display: block")
-  responseEl.setAttribute("style", "display: block")
-  scoreInputsEl.setAttribute("style", "display: none")
-  viewHighscoresEL.setAttribute("style", "display: none")
+  hide(quizTitleEl);
+  hide(quizInstrEl);
+  hide(scoreInputsEl);
+  hide(viewHighscoresEL);
+  show(questionEl);
+  show(timerEl);
+  show(responseEl);
   nextQuestion();
   startTimer();
 });
@@ -159,25 +165,25 @@ answersEl.addEventListener("click", function(event) {
 })
 
 viewHighscoresEL.addEventListener("click", function () {
-  timerEl.setAttribute("style", "display: none")
-  containerEl.setAttribute("style", "display: none");
-  highscoresEl.setAttribute("style", "display: block")
+  hide(timerEl);
+  hide(containerEl);
+  show(highscoresEl);
 })
 
 returnToQuizBtn.addEventListener("click", function() {
-  containerEl.setAttribute("style", "display: block");
-  highscoresEl.setAttribute("style", "display: none");
-  viewHighscoresEL.setAttribute("style", "display: block")
+  show(containerEl);
+  hide(highscoresEl);
+  show(viewHighscoresEL);
   quizReset();
 })
 
 submitScoreBtn.addEventListener("click", function() {
-  var userInitials = initialsEl.value.trim()
+  var userInitials = initialsEl.value.trim();
   if (userInitials) {
-    localStorage.setItem('username', userInitials)
-    localStorage.setItem('userscore', score)
-    scoreInputsEl.setAttribute("style", "display: none");
-    viewHighscoresEL.setAttribute("style", "display: block")
+    localStorage.setItem('username', userInitials);
+    localStorage.setItem('userscore', score);
+    hide(scoreInputsEl);
+    show(viewHighscoresEL);
     storeHighscores();
   }
 })
