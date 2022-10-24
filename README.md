@@ -2,29 +2,22 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+This is a simple timed Coding Quiz made mostly with JavaScript to hone my skills using js. I learned about local storage, event listeners, timers, DOM navigation and many other things. 
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+## Installation
+
+N/A
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+Click the Start Quiz! button to begin the quiz. You have 30 seconds to complete the quiz. You will be deducted 5 seconds for every question you answer wrong. Your final score will be the time remaining at the end of the quiz. Upon completing the quiz you will be brought to the high score submittal screen where you can enter your initials and save your score. You can also view the saved highscores once you enter your score, or by pressing the View Highscores button in the top left.
 
 ![alt text](assets/images/screenshot.png)
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+N/A
 
 ## Features
 
-If your project has a lot of features, list them here.
+Uses a timer during the quiz with a 5 second adjustment if a question was answered wrong. Uses local storage to store scores and initials. 

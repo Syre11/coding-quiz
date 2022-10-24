@@ -8,36 +8,38 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<!-- ***********************************************************
-  *************************************// *****************************
-  *******************************************************************
-  *****DON'T FORGET TO ADD A SCREENSHOT AND LINK TO YOUR README******
-  **********************************************************
-  ***********************************************************
-  ********************************************************** -->
-
 
 <body>
-  <div>
-    <!-- link to highscores -->
-    <link>
-    <!-- timer -->
-    <p></p>
-  </div>
+  <nav>
+    <button id="viewHighscores">View Highscores</button>
+    <p id="timer">Time Remaining: <span id="currentTime"></span></p>
+  </nav>
+
   <div class="container">
-    <!-- Need to set h2 to be something like "Coding Quiz Challenge" I thought about using them both in the same h2, but contextually having the title seperate from the questions made more sense to me-->
-    <h2 id="quizTitle"></h2>
-    <h2 id="question">Regular show is the greatest tv show of all time. Ignore that it's a kids show, it has a very complex and loveable story. What's the answer?</h2>
-    <!-- This <p> will have the explanation at the start screen. Need to use a function in js to set this = "" when the start button is clicked -->
-    <p id="quizInstr"></p>
-    <ol id="answers">
-      <!-- text and li are just here as placeholders for now -->
-      <li>answer1</li>
-      <li>answer2</li>
-      <li>answer4</li>
-      <li>answer3</li>
-    </ol>
-    <button id="startBtn">Start Quiz!</button>
+    <h2 id="quizTitle">Coding Quiz Challenge</h2>
+    <h2 id="question"></h2>
+    <p id="quizInstr">Welcome to the quiz. Click 'Start Quiz!' to start the quiz. You will be deducted 5 seconds for every question you answer wrong. Your score will be determined by how many seconds are remaining at the end.</p>
+    <div id="answers">
+      <div><button type="button" class="userAnswer" id="answer1"></button></div>
+      <div><button type="button" class="userAnswer" id="answer2"></button></div>
+      <div><button type="button" class="userAnswer" id="answer3"></button></div>
+      <div><button type="button" class="userAnswer" id="answer4"></button></div>
+    </div>
+    <p id="cpuResponse"></p>
+    <button type="button" id="startBtn">Start Quiz!</button>
+  </div>
+
+  <div class="container" id="scoreInput">
+    <p>Your final score: <span id="yourScore"></span></p>
+    <p>Enter Initials: <input type="text" id="initials"></p>
+    <button type="submit" id="submitScore">Submit</button>
+  </div>
+
+  <div class="container" id="highscores">
+    <h3>Highscores</h3>
+    <ul id="scores">
+    </ul>
+    <button type="button" id="returnToQuiz">Back to Quiz</button>
   </div>
 
   <script src="./assets/js/script.js"></script>
